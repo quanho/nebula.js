@@ -7,48 +7,51 @@ import { makeStyles } from '@nebula.js/ui/theme';
 import Lock from '@nebula.js/ui/icons/lock';
 import Tick from '@nebula.js/ui/icons/tick';
 
-const useStyles = makeStyles((theme) => ({
-  row: {
-    flexWrap: 'nowrap',
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    '&:focus': {
-      boxShadow: `inset 0 0 0 2px ${theme.palette.custom.focusOutline}`,
-      outline: 'none',
+const useStyles = makeStyles((theme) => {
+  const res = {
+    row: {
+      flexWrap: 'nowrap',
+      borderBottom: `1px solid ${theme.palette ? theme.palette.divider : 'rgba(0, 0, 0, 0.12)'}`,
+      '&:focus': {
+        boxShadow: `inset 0 0 0 2px ${theme.palette ? theme.palette.custom.focusOutline : 'rgba(70, 157, 205, 0.3)'}`,
+        outline: 'none',
+      },
     },
-  },
-  cell: {
-    padding: '8px',
-    '& span': {
-      whiteSpace: 'nowrap',
-      fontSize: '12px',
-      lineHeight: '16px',
+    cell: {
+      padding: '8px',
+      '& span': {
+        whiteSpace: 'nowrap',
+        fontSize: '12px',
+        lineHeight: '16px',
+      },
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
     },
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-  },
-  icon: {
-    padding: theme.spacing(1),
-  },
-  S: {
-    background: theme.palette.selected.main,
-    color: theme.palette.selected.mainContrastText,
-    '&:focus': {
-      boxShadow: `inset 0 0 0 2px rgba(0, 0, 0, 0.3)`,
-      outline: 'none',
+    icon: {
+      padding: '8px',
     },
-  },
-  A: {
-    background: theme.palette.selected.alternative,
-    color: theme.palette.selected.alternativeContrastText,
-  },
-  X: {
-    background: theme.palette.selected.excluded,
-    color: theme.palette.selected.excludedContrastText,
-  },
-  highlighted: {
-    backgroundColor: '#FFC72A',
-  },
-}));
+    S: {
+      background: theme.palette ? theme.palette.selected.main : '#009845',
+      color: theme.palette ? theme.palette.selected.mainContrastText : '#ffffff',
+      '&:focus': {
+        boxShadow: `inset 0 0 0 2px rgba(0, 0, 0, 0.3)`,
+        outline: 'none',
+      },
+    },
+    A: {
+      background: theme.palette ? theme.palette.selected.alternative : '#E4E4E4',
+      color: theme.palette ? theme.palette.selected.alternativeContrastText : '#404040',
+    },
+    X: {
+      background: theme.palette ? theme.palette.selected.excluded : '#BEBEBE',
+      color: theme.palette ? theme.palette.selected.excludedContrastText : '#404040',
+    },
+    highlighted: {
+      backgroundColor: '#FFC72A',
+    },
+  };
+  return res;
+});
 
 export default function Row({ index, style, data }) {
   const classes = useStyles();
