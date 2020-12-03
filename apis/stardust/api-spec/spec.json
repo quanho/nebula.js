@@ -25,7 +25,9 @@
       "returns": {
         "type": "#/definitions/Embed"
       },
-      "examples": ["import { embed } from '@nebula.js/stardust'\nconst n = embed(app);\nn.render({ id: 'abc' });"],
+      "examples": [
+        "import { embed } from '@nebula.js/stardust'\nconst n = embed(app);\nn.render({ id: 'abc' });"
+      ],
       "entries": {
         "createConfiguration": {
           "description": "Creates a new `embed` scope bound to the specified `configuration`.\n\nThe configuration is merged with all previous scopes.",
@@ -446,13 +448,17 @@
               "type": "HTMLElement"
             }
           ],
-          "examples": ["selections.mount(element);"]
+          "examples": [
+            "selections.mount(element);"
+          ]
         },
         "unmount": {
           "description": "Unmounts the app selection UI from the DOM.",
           "kind": "function",
           "params": [],
-          "examples": ["selections.unmount();"]
+          "examples": [
+            "selections.unmount();"
+          ]
         }
       }
     },
@@ -694,7 +700,9 @@
               }
             ]
           },
-          "examples": ["const selections = await n.selections();\nselections.mount(element);"]
+          "examples": [
+            "const selections = await n.selections();\nselections.mount(element);"
+          ]
         }
       }
     },
@@ -1088,7 +1096,9 @@
             "description": "The resolved color.",
             "type": "string"
           },
-          "examples": ["theme.getColorPickerColor({ index: 1 });\ntheme.getColorPickerColor({ color: 'red' });"]
+          "examples": [
+            "theme.getColorPickerColor({ index: 1 });\ntheme.getColorPickerColor({ color: 'red' });"
+          ]
         },
         "getContrastingColorTo": {
           "description": "Get the best contrasting color against the specified `color`.\nThis is typically used to find a suitable text color for a label placed on an arbitrarily colored background.\n\nThe returned colors are derived from the theme.",
@@ -1104,7 +1114,9 @@
             "description": "- The color that has the best contrast against the specified `color`.",
             "type": "string"
           },
-          "examples": ["theme.getContrastingColorTo('#400');"]
+          "examples": [
+            "theme.getContrastingColorTo('#400');"
+          ]
         },
         "getDataColorPalettes": {
           "kind": "function",
@@ -1167,7 +1179,9 @@
             "description": "The style value",
             "type": "string"
           },
-          "examples": ["theme.getStyle('object', 'title.main', 'fontSize'));\ntheme.getStyle('', '', 'fontSize'));"]
+          "examples": [
+            "theme.getStyle('object', 'title.main', 'fontSize'));\ntheme.getStyle('', '', 'fontSize'));"
+          ]
         }
       },
       "definitions": {
@@ -1420,14 +1434,18 @@
           "description": "Destroys the visualization and removes if from the the DOM.",
           "kind": "function",
           "params": [],
-          "examples": ["const viz = await embed(app).render({\n  element,\n  id: 'abc'\n});\nviz.destroy();"]
+          "examples": [
+            "const viz = await embed(app).render({\n  element,\n  id: 'abc'\n});\nviz.destroy();"
+          ]
         },
         "id": {
           "description": "The id of this visualization's generic object.",
           "type": "string"
         }
       },
-      "examples": ["const viz = await embed(app).render({\n  element,\n  type: 'barchart'\n});\nviz.destroy();"]
+      "examples": [
+        "const viz = await embed(app).render({\n  element,\n  type: 'barchart'\n});\nviz.destroy();"
+      ]
     },
     "VizElement": {
       "extends": [

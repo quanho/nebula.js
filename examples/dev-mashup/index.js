@@ -18,17 +18,22 @@ function init() {
       ],
     });
 
-    nebbie.selections().then((s) => s.mount(document.querySelector('.toolbar')));
+    // nebbie.selections().then((s) => s.mount(document.querySelector('.toolbar')));
 
-    document.querySelectorAll('.object').forEach((el) => {
+    document.querySelectorAll('.object').forEach(async (el) => {
       const type = el.getAttribute('data-type');
 
-      nebbie.render({
+      const viz = await nebbie.render({
         type,
         element: el,
+        options: {
+          conversion: true,
+        },
 
         fields: ['Alpha', '=Sum(Expression1)'],
       });
+
+      viz.__DO_NOT_USE__.convertTo({ newType: 'line' });
     });
   });
 }
