@@ -62,8 +62,8 @@ export const convertTo = async ({ halo, model, cellRef, newType }) => {
     propertyTree,
     hypercubePath: helpers.getHypercubePath(sourceQae),
   });
-  const dimensionList = cellRef.current.getLibraryList('dimension');
-  const measureList = cellRef.current.getLibraryList('measure');
+  const dimensionList = await cellRef.current.getLibraryList(halo.app, 'dimension');
+  const measureList = await cellRef.current.getLibraryList(halo.app, 'measure');
   helpers.checkLibraryObjects({ exportFormat, dimensionList, measureList });
   const initial = utils.getValue(targetQae, 'properties.initial', {});
   const initialProperties = {
